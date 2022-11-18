@@ -13,7 +13,7 @@ var io = socketIO(server);
 app.use(express.static(publicPath));
 
 io.on('connection', (socket) => {
-	console.log('New user connected');
+	//console.log('New user connected');
 	
 	socket.emit('newMessage', generateMessage('Admin','Welcome to the chat'));
 
@@ -22,7 +22,7 @@ io.on('connection', (socket) => {
 
 	
 	socket.on('createMessage', (message, callback) => {
-		console.log('createMessage', message);
+		//console.log('createMessage', message);
 		io.emit('newMessage', generateMessage(message.from, message.text));
 					
 /* 		socket.broadcast.emit('newMessage', generateMessage(message.from, message.text)); */
@@ -36,7 +36,7 @@ io.on('connection', (socket) => {
 	});	
 	
 	socket.on('disconnect', () => {
-		console.log('User was disconnected');
+		//console.log('User was disconnected');
 	});	
 });
 
